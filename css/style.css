@@ -160,6 +160,7 @@ button:focus{
 .top-navbar{
 	position: relative;
 	z-index: 10;
+    background: #fdedd5;
 }
 
 .top-navbar .navbar{
@@ -609,7 +610,7 @@ button:focus{
 	padding-bottom: 0px;
 }
 .bg-f{
-	background-image: url("../images/footer-bg.jpg");
+	background-image: url("../images/img/Footer.png");
 	background-attachment: scroll;
 	background-clip: initial;
 	background-color: rgba(0, 0, 0, 0);
