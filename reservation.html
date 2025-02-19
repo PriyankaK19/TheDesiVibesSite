@@ -35,6 +35,38 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let formData = {
+				date: document.getElementById("date").value,
+				time: document.getElementById("time").value,
+				person: document.getElementById("person").value,
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                number: document.getElementById("number").value
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbyjiHL7lfcLa4aMkeGxOSBdCugqi2EB9M3-HDm5TPbVpDSyprHllBAqlduLUQAge8h6hA/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+			})
+				.then(response => response.text()) // Get text response
+    .then(data => {
+        console.log("Response:", data);
+        alert("Data submitted successfully!");
+        document.getElementById("myForm").reset();
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Submission failed! Check console for details.");
+    });
+});
+    </script>
+
 </head>
 
 <body>
@@ -76,6 +108,7 @@
 	<!-- End All Pages -->
 	
 	<!-- Start Reservation -->
+	<form id="myForm" method="post">
 	<div class="reservation-box">
 		<div class="container">
 			<div class="row">
@@ -95,19 +128,19 @@
 									<h3>Book a table</h3>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input id="input_date" class="datepicker picker__input form-control" name="date" type="date" value="" equired data-error="Please enter Date">
+											<input id="date" class="datepicker picker__input form-control" name="date" type="date" value="" equired data-error="Please enter Date">
 											<div class="help-block with-errors"></div>
 										</div>                                 
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input id="input_time" class="time form-control picker__input"  type="time" required data-error="Please enter time">
+											<input id="time" class="time form-control picker__input" name="time" type="time" required data-error="Please enter time">
 											<div class="help-block with-errors"></div>
 										</div>                                 
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+											<select class="custom-select d-block form-control" id="person" name="person" required data-error="Please select Person">
 											  <option disabled selected>Select Person*</option>
 											  <option value="1">1</option>
 											  <option value="2">2</option>
@@ -137,7 +170,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="text" placeholder="Your Numbar" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
+											<input type="text" placeholder="Your Numbar" id="number" class="form-control" name="number" required data-error="Please enter your Numbar">
 											<div class="help-block with-errors"></div>
 										</div> 
 									</div>
@@ -156,8 +189,11 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<!-- End Reservation -->
 	
+
+
 	
 	
 <!-- Start Contact info -->
