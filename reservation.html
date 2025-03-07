@@ -41,14 +41,14 @@
 
             let formData = {
 				date: document.getElementById("date").value,
-				time: document.getElementById("time").value,
+			//	time: document.getElementById("time").value,
 				person: document.getElementById("person").value,
                 name: document.getElementById("name").value,
                 email: document.getElementById("email").value,
                 number: document.getElementById("number").value
             };
 
-            fetch("https://script.google.com/macros/s/AKfycbyjiHL7lfcLa4aMkeGxOSBdCugqi2EB9M3-HDm5TPbVpDSyprHllBAqlduLUQAge8h6hA/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbx_Og6ZZ2U5RFOULXHBFPfG5PXyoD-EbAQJQqfw2QEo4LMnd5RxxGAXyJtx1b7IOSW1/exec", {
                 method: "POST",
                 mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
@@ -108,7 +108,7 @@
 	<!-- End All Pages -->
 	
 	<!-- Start Reservation -->
-	<form id="myForm" method="post">
+	<form id="myForm" method="POST">
 	<div class="reservation-box">
 		<div class="container">
 			<div class="row">
